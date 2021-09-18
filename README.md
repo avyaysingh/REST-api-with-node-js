@@ -1,1 +1,1 @@
-# REST-api-with-node-js
+# REST Api with nodejs, express and Sequelize
