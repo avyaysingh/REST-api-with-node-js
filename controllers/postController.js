@@ -10,13 +10,13 @@ Post.hasMany(Comment, { foreignKey: "postId" });
 Comment.belongsTo(Post, { foreignKey: "postId" });
 
 
-const post_index = (req, res) => {
+const post_index = async(req, res) => {
   await Post.findAll({ include: [Author, Comment] })
     .then((posts) => res.status(200).json(posts))
     .catch((err) => console.log(err));
 };
 
-const post_details = (req, res) => {
+const post_details = async(req, res) => {
   await Post.findByPk(req.params.id, {
     include: Comment,
   })
@@ -24,7 +24,7 @@ const post_details = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const createPost = (req, res) => {
+const createPost = async(req, res) => {
   let { catagory, title, description, authorId } = req.body;
   // const author = Author.findOne({ where: { id: authorPkId } });
   await Post.create({
