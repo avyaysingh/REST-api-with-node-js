@@ -1,0 +1,30 @@
+js files removed from app.js:-
+
+//create connection
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "avyay",
+  password: "123456",
+  database: "acme"
+});
+
+
+//connect
+db.connect((err) => {
+    if(err) throw err;
+    console.log("mysql connected....");
+});
+
+//query
+app.get('/users', (req, res) => {
+    const sql = 'SELECT * FROM users';
+
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+app.listen("3000", () => {
+  console.log("server started on port 3000");
+});

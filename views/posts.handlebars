@@ -1,0 +1,23 @@
+<section id="posts" class="container">
+    <h1>All Posts</h1>
+
+    {{#each posts}}
+      <div class="post">
+      <h3>{{dataValues.title}}</h3>
+      <p>{{dataValues.catagory}}</p>
+      <p>{{dataValues.publish_date}}</p>
+      <p>{{dataValues.view_count}}</p>
+      <p>{{dataValues.description}}</p>
+      {{!-- <ul>
+        <li>Budget: {{budget}}</li>
+        <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li>
+      </ul> --}}
+      <div class="tech">
+        <small>Catagories: <span>{{dataValues.catagory}}</span></small>
+      </div>
+    </div>
+    {{else}}
+      <p>No posts available</p>
+    {{/each}}
+    
+  </section>
